@@ -17,7 +17,7 @@ def root():
 def find_user(
         user_id: int = Path(..., description="Ідентифікатор користувача"),
         timestamp: Optional[str] = Query(None, description="Мітка часу"),
-        x_client_version: str = Header(..., alias="X-Client-Version")
+        x_client_version: str = Header(..., description="Версія вашого клієнтського додатку")
 ):
     if not timestamp:
         timestamp = datetime.now(timezone.utc).astimezone().isoformat()
